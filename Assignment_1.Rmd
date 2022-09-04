@@ -1,0 +1,210 @@
+---
+title: "Assignment_1_DATA608"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+---
+title: "R Notebook"
+output:
+  html_document: default
+  html_notebook: default
+---
+
+**Principles of Data Visualization and Introduction to ggplot2**
+
+I have provided you with data about the 5,000 fastest growing companies in the US, as compiled by Inc. magazine. lets read this in:
+
+```{r}
+
+inc <- read.csv("https://raw.githubusercontent.com/charleyferrari/CUNY_DATA_608/master/module1/Data/inc5000_data.csv", header= TRUE)
+
+```
+
+And lets preview this data:
+
+```{r}
+
+head(inc)
+
+```
+
+
+```{r}
+
+summary(inc)
+
+```
+
+Think a bit on what these summaries mean. Use the space below to add some more relevant non-visual exploratory information you think helps you understand this data:
+
+## Solution: 
+
+A good first step in any analysis is to distill all of the information into a few summary statistics and graphics. As a simple example, the function summary returns a numerical summary: minimum, first quartile, median, mean, second quartile, and maximum as given above. However, looking at min and max for Revenue for example show that there is a range of companies included here with revenue ranging from 2 million all the way to 10 billion. It might make sense to look at growth rates by grouping revenue into categories. One would assume lower growth rates for mature companies and vice versa higher growth rates for young companies with lower revenues. We can use the group_by, summarise and arrange functions to check if this hypothesis is true. 
+
+Below, we summarize growth rates by industry sorted in descending order and notice that Government Services has the highest median growth rate along with other mature industries such as Energy and Real Estate and contrary to expectations, the Computer Hardware sector has the lowest median growth rate of all industries. We repeat the exercise by sorting by mean and by standard deviation of growth rate for industries in descending order and notice that the results are slightly different. Sorting by median growth rate brings the Energy and Consumer Products & Services to the top (previously ranked #2 and #5) while sending Software and Media to rank #7 and #9 (previously #4 and #7, respectively). 
+
+The true picture emerges when we sort by standard deviation, the industries that were previously identified as having high mean and median growth rates also happen to have a high standard deviation. Taking the example of the Energy industry, it becomes clear that there is a wide gamut of companies ranging from growth rates of < 1% (Maneri~Agraz Enterprises, Customized Energy Solutions) to companies such as Bridger which have a growth rate of 233%. Looking further at the methodology behind the Inc. rankings reveals that growth rates are calculated over a 3-year timeframe and are not annualized numbers which could be the reason why the results of the aggregation below don't align with intuition. Looking at another industry "Consumer Products & Services", companies that are listed as having high growth rates are LivingSocial (a web rating company), Goal Zero (a portable battery company) and Fuhu (now bankrupt, previously a computer manufacturer). The growth rates for this category appear to make sense but neverthless the Inc. calculation methodology for growth rates can lead to erroneous conclusions and needs to be treated with caution.
+
+```{r}
+# Insert your code here, create more chunks as necessary
+
+# Sort in descending order by median growth rates
+
+library(tidyverse)
+visualize1 <- inc %>%
+  group_by(Industry) %>%
+  summarise(mean_Growth_Rate = mean(Growth_Rate), median_Growth_Rate = median(Growth_Rate), sd_Growth_Rate = sd(Growth_Rate)) %>%
+  arrange(desc(median_Growth_Rate))
+
+visualize1
+
+# Sort in descending order by mean growth rates
+
+visualize2 <- inc %>%
+  group_by(Industry) %>%
+  summarise(mean_Growth_Rate = mean(Growth_Rate), median_Growth_Rate = median(Growth_Rate), sd_Growth_Rate = sd(Growth_Rate)) %>%
+  arrange(desc(mean_Growth_Rate))
+
+visualize2
+
+# Sort in descending order by standard deviation of growth rates
+
+visualize3 <- inc %>%
+  group_by(Industry) %>%
+  summarise(mean_Growth_Rate = mean(Growth_Rate), median_Growth_Rate = median(Growth_Rate), sd_Growth_Rate = sd(Growth_Rate)) %>%
+  arrange(desc(sd_Growth_Rate))
+
+visualize3
+
+```
+
+## Question 1
+
+Create a graph that shows the distribution of companies in the dataset by State (ie how many are in each state). There are a lot of States, so consider which axis you should use. This visualization is ultimately going to be consumed on a 'portrait' oriented screen (ie taller than wide), which should further guide your layout choices.
+
+## Solution: 
+
+```{r}
+# Answer Question 1 here
+
+state <- inc %>% 
+  group_by(State) %>%
+  summarize(Count = n())
+
+ggplot(data = state, aes(x = reorder(State, Count), y = Count)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  labs(title = "Distribution of Companies by State", x = "State", y = "Number of Companies") +
+  theme(axis.text.y = element_text(size = 6)) +
+  theme(plot.title = element_text(hjust = 0.5))
+
+```
+
+## Question 2
+
+Let's dig in on the state with the 3rd most companies in the data set. Imagine you work for the state and are interested in how many people are employed by companies in different industries. Create a plot that shows the average and/or median employment by industry for companies in this state (only use cases with full data, use R's `complete.cases()` function.) In addition to this, your graph should show how variable the ranges are, and you should deal with outliers.
+
+## Solution: 
+
+We first create visualize4 which is a filtered subset of inc containing only use cases with complete data for the state of New York. By sorting this dataset in descending order, we notice that there is a wide variance in Empoyment with companies such as "Sutherland Global Services" and "Coty" employing tens of thousands of employees and on the other end 227 companies with fewer than 100 employees. Instead of eliminating companies that are either small or large (outliers), I instead chose to display median values using the visualize6 dataset in Boxplot # 4. 
+
+We could also have chosen to display the untrasnformed count of employees by industry for the state of New York as depicted in the visualize4 dataset. The outliers are clearly evident in the Business Products & Services and in the Consumer Products & Services industries. By eliminating these two industries as a whole, we arrive at a more normalized version of the boxplot that allows a comparison among the remaining industries as depicted in the Boxplot # 2 chart. Note that eliminating outliers in the chart is not the same as eliminating outliers in the underlying dataset. This is evident by comparing Boxplot # 3 (modified chart) with boxplot # 2 (modified data). The modified chart displays all industries and eliminates companies that are outliers rather than eliminate entire industries.
+
+```{r}
+# Answer Question 2 here
+
+library(tidyverse)
+library(ggplot2)
+
+# Filter on New York state and include only complete use cases
+
+visualize4 <- inc[complete.cases(inc[, c('State')]),] %>% 
+  filter(State == "NY", na.rm = TRUE) %>%
+  arrange(desc(Employees))
+
+visualize4
+
+# Plot based on number of employees without eliminating outliers
+
+ggplot(data = visualize4, aes(x = Employees, y = reorder(Industry, Employees))) +
+  geom_boxplot() +
+  labs(title = "Boxplot # 1 - Employment by industry in NY state", x = "Number of employees", y = "Industry") +
+  theme(axis.text.y = element_text(size = 6)) +
+  theme(plot.title = element_text(hjust = 0.5))
+
+# Eliminate outliers in the underlying data and then plot
+
+visualize5 <- inc[complete.cases(inc[, c('State')]),] %>% 
+  filter(State == "NY" & Industry != "Consumer Products & Services" & Industry != "Business Products & Services", (na.rm = TRUE)) %>%
+  arrange(desc(Employees))
+
+visualize5
+
+ggplot(data = visualize5, aes(x = Employees, y = reorder(Industry, Employees))) +
+  geom_boxplot() +
+  labs(title = "Boxplot # 2 - Employment by Industry in NY state", x = "Number of employees", y = "Industry") +
+  theme(axis.text.y = element_text(size = 6)) +
+  theme(plot.title = element_text(hjust = 0.5))
+
+# Eliminate outliers in the plot but not underlying data
+
+ggplot(data = visualize4, aes(x = Employees, y = reorder(Industry, Employees))) +
+  geom_boxplot() +
+  labs(title = "Boxplot # 3 - Employment by industry in NY state", x = "Number of employees", y = "Industry") +
+  coord_cartesian(xlim = c(0, 3000)) +
+  theme(axis.text.y = element_text(size = 6)) +
+  theme(plot.title = element_text(hjust = 0.5))
+
+# Calculate mean, median and standard deviation of employees
+
+visualize6 <- visualize4 %>%
+  group_by(Industry) %>%
+  summarise(mean_Employees = mean(Employees), median_Employees = median(Employees), sd_Employees = sd(Employees)) %>%
+  arrange(desc(median_Employees))
+
+visualize6
+
+# Plot median number of employees
+
+ggplot(data = visualize6, aes(x = median_Employees, y = reorder(Industry, median_Employees))) +
+  geom_boxplot() +
+  labs(title = "Boxplot # 4 - Median Employment by Industry in NY state", x = "Median number of employees", y = "Industry") +
+  theme(axis.text.y = element_text(size = 6)) +
+  theme(plot.title = element_text(hjust = 0.5))
+
+```
+
+## Question 3
+
+Now imagine you work for an investor and want to see which industries generate the most revenue per employee. Create a chart that makes this information clear. Once again, the distribution per industry should be shown.
+
+## Solution: 
+
+It is clear from the chart that the Computer Hardware industry generates the most revenue per employee while the Human Resources industry generates the least revenue per employee.
+
+```{r}
+# Answer Question 3 here
+
+revenue <- inc %>%
+  group_by(Industry) %>%
+  summarize(TotalRev = sum(Revenue), TotalEmp = sum(Employees), RevPerEmp = TotalRev/TotalEmp) %>%
+  arrange(desc(RevPerEmp)) %>%
+  na.omit()
+
+ggplot(data = revenue, aes(x = reorder(Industry, RevPerEmp), y = RevPerEmp)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Revenue per Employee by Industry", x = "Industry", y = "Revenue per Employee") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  theme(axis.text.x = element_text(size = 6)) +
+  coord_flip()
+
+```
+
