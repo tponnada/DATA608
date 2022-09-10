@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+
+
+<h1>Javascript Project 5</h1>
+
+<h2>By TJ Parker</h2>
+
+
+
+
+<p>String Reversal Function:</p>
+
+<script>
+
+var str_rev = prompt("Please enter a phrase", "never odd or even");
+
+document.write(str_rev + " " +"---->" + " ");
+
+var str_list = str_rev.split("");
+
+var rev_list = str_list.reverse();
+
+var rev_str = rev_list.join("");
+
+document.write(rev_str);
+
+</script>
+
+
+
+
+<p>Multiplication Table:</p>
+
+<input type="button" value="Generate a table." onclick="generate_table()">
+
+<script>
+
+var num1 = prompt("Please enter a number", "2");
+
+var num1 = parseInt(num1);
+
+
+
+
+function generate_table() {
+
+  // adapted from: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces
+
+  // get the reference for the body
+
+  var body = document.getElementsByTagName("body")[0];
+
+
+
+
+  // creates a <table> element and a <tbody> element
+
+  var tbl = document.createElement("table");
+
+  var tblBody = document.createElement("tbody");
+
+
+
+
+  // creating all cells
+
+  //Easiest way to get the Multiplication table to work was a third counter, k
+
+  var k = 1
+
+  for (var i = 0; i < 5; i++) {
+
+    // creates a table row
+
+    var row = document.createElement("tr");
+
+
+
+
+    for (var j = 0; j < 4; j++) {
+
+      // Create a <td> element and a text node, make the text
+
+      // node the contents of the <td>, and put the <td> at
+
+      // the end of the table row
+
+      var cell = document.createElement("td");
+
+      var cellText = document.createTextNode(num1*k);
+
+      cell.appendChild(cellText);
+
+      row.appendChild(cell);
+
+      k++
+
+    }
+
+
+
+
+    // add the row to the end of the table body
+
+    tblBody.appendChild(row);
+
+  }
+
+
+
+
+  // put the <tbody> in the <table>
+
+  tbl.appendChild(tblBody);
+
+  // appends <table> into <body>
+
+  body.appendChild(tbl);
+
+  // sets the border attribute of tbl to 2;
+
+  tbl.setAttribute("border", "2");
+
+}
+
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>
