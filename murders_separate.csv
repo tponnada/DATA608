@@ -1,0 +1,167 @@
+"city","state","change","text","year","murders"
+"Mobile","Alabama",-7,"murders","2014",31
+"Mobile","Alabama",-7,"murders","2015",24
+"Anchorage","Alaska",14,"murders","2014",12
+"Anchorage","Alaska",14,"murders","2015",26
+"Chandler","Arizona",0,"murders","2014",1
+"Chandler","Arizona",0,"murders","2015",1
+"Mesa","Arizona",3,"murders","2014",13
+"Mesa","Arizona",3,"murders","2015",16
+"Phoenix","Arizona",-2,"murders","2014",114
+"Phoenix","Arizona",-2,"murders","2015",112
+"Tucson","Arizona",-4,"murders","2014",35
+"Tucson","Arizona",-4,"murders","2015",31
+"Anaheim","California",4,"murders","2014",14
+"Anaheim","California",4,"murders","2015",18
+"Bakersfield","California",5,"murders","2014",17
+"Bakersfield","California",5,"murders","2015",22
+"Chula Vista","California",-1,"murders","2014",7
+"Chula Vista","California",-1,"murders","2015",6
+"Fresno","California",-8,"murders","2014",47
+"Fresno","California",-8,"murders","2015",39
+"Irvine","California",2,"murders","2014",0
+"Irvine","California",2,"murders","2015",2
+"Long Beach","California",13,"murders","2014",23
+"Long Beach","California",13,"murders","2015",36
+"Los Angeles","California",22,"murders","2014",260
+"Los Angeles","California",22,"murders","2015",282
+"Oakland","California",5,"murders","2014",80
+"Oakland","California",5,"murders","2015",85
+"Riverside","California",-2,"murders","2014",12
+"Riverside","California",-2,"murders","2015",10
+"Sacramento","California",15,"murders","2014",28
+"Sacramento","California",15,"murders","2015",43
+"San Diego","California",5,"murders","2014",32
+"San Diego","California",5,"murders","2015",37
+"San Francisco","California",8,"murders","2014",45
+"San Francisco","California",8,"murders","2015",53
+"San Jose","California",-2,"murders","2014",32
+"San Jose","California",-2,"murders","2015",30
+"Santa Ana","California",-6,"murders","2014",18
+"Santa Ana","California",-6,"murders","2015",12
+"Stockton","California",0,"murders","2014",49
+"Stockton","California",0,"murders","2015",49
+"Aurora","Colorado",13,"murders","2014",11
+"Aurora","Colorado",13,"murders","2015",24
+"Colorado Springs","Colorado",5,"murders","2014",20
+"Colorado Springs","Colorado",5,"murders","2015",25
+"Denver","Colorado",22,"murders","2014",31
+"Denver","Colorado",22,"murders","2015",53
+"Washington","D.C.",57,"murders","2014",105
+"Washington","D.C.",57,"murders","2015",162
+"Jacksonville","Florida",1,"murders","2014",96
+"Jacksonville","Florida",1,"murders","2015",97
+"Miami","Florida",-6,"murders","2014",81
+"Miami","Florida",-6,"murders","2015",75
+"Orlando","Florida",17,"murders","2014",15
+"Orlando","Florida",17,"murders","2015",32
+"St. Petersburg","Florida",-5,"murders","2014",19
+"St. Petersburg","Florida",-5,"murders","2015",14
+"Tampa","Florida",6,"murders","2014",28
+"Tampa","Florida",6,"murders","2015",34
+"Atlanta","Georgia",1,"murders","2014",93
+"Atlanta","Georgia",1,"murders","2015",94
+"Honolulu","Hawaii",-6,"murders","2014",21
+"Honolulu","Hawaii",-6,"murders","2015",15
+"Chicago","Illinois",67,"murders","2014",411
+"Chicago","Illinois",67,"murders","2015",478
+"Fort Wayne","Indiana",13,"murders","2014",12
+"Fort Wayne","Indiana",13,"murders","2015",25
+"Indianapolis","Indiana",12,"murders","2014",136
+"Indianapolis","Indiana",12,"murders","2015",148
+"Wichita","Kansas",1,"murders","2014",26
+"Wichita","Kansas",1,"murders","2015",27
+"Lexington","Kentucky",-5,"murders","2014",20
+"Lexington","Kentucky",-5,"murders","2015",15
+"Louisville","Kentucky",25,"murders","2014",56
+"Louisville","Kentucky",25,"murders","2015",81
+"New Orleans","Louisiana",14,"murders","2014",150
+"New Orleans","Louisiana",14,"murders","2015",164
+"Baltimore","Maryland",133,"murders","2014",211
+"Baltimore","Maryland",133,"murders","2015",344
+"Boston","Massachusetts",-15,"murders","2014",53
+"Boston","Massachusetts",-15,"murders","2015",38
+"Detroit","Michigan",-3,"murders","2014",298
+"Detroit","Michigan",-3,"murders","2015",295
+"Minneapolis","Minnesota",16,"murders","2014",31
+"Minneapolis","Minnesota",16,"murders","2015",47
+"St. Paul","Minnesota",5,"murders","2014",11
+"St. Paul","Minnesota",5,"murders","2015",16
+"Kansas City","Missouri",31,"murders","2014",78
+"Kansas City","Missouri",31,"murders","2015",109
+"St. Louis","Missouri",29,"murders","2014",159
+"St. Louis","Missouri",29,"murders","2015",188
+"Lincoln","Nebraska",-6,"murders","2014",7
+"Lincoln","Nebraska",-6,"murders","2015",1
+"Omaha","Nebraska",16,"murders","2014",32
+"Omaha","Nebraska",16,"murders","2015",48
+"Henderson","Nevada",1,"murders","2014",3
+"Henderson","Nevada",1,"murders","2015",4
+"Las Vegas","Nevada",5,"murders","2014",122
+"Las Vegas","Nevada",5,"murders","2015",127
+"Jersey City","New Jersey",3,"murders","2014",24
+"Jersey City","New Jersey",3,"murders","2015",27
+"Newark","New Jersey",11,"murders","2014",93
+"Newark","New Jersey",11,"murders","2015",104
+"Albuquerque","New Mexico",13,"murders","2014",30
+"Albuquerque","New Mexico",13,"murders","2015",43
+"Buffalo","New York",-19,"murders","2014",60
+"Buffalo","New York",-19,"murders","2015",41
+"New York","New York",19,"murders","2014",333
+"New York","New York",19,"murders","2015",352
+"Charlotte-Mecklenburg","North Carolina",14,"murders","2014",47
+"Charlotte-Mecklenburg","North Carolina",14,"murders","2015",61
+"Durham","North Carolina",13,"murders","2014",21
+"Durham","North Carolina",13,"murders","2015",34
+"Greensboro","North Carolina",3,"murders","2014",23
+"Greensboro","North Carolina",3,"murders","2015",26
+"Raleigh","North Carolina",1,"murders","2014",16
+"Raleigh","North Carolina",1,"murders","2015",17
+"Cincinnati","Ohio",6,"murders","2014",60
+"Cincinnati","Ohio",6,"murders","2015",66
+"Cleveland","Ohio",57,"murders","2014",63
+"Cleveland","Ohio",57,"murders","2015",120
+"Columbus","Ohio",-6,"murders","2014",83
+"Columbus","Ohio",-6,"murders","2015",77
+"Toledo","Ohio",0,"murders","2014",24
+"Toledo","Ohio",0,"murders","2015",24
+"Oklahoma City","Oklahoma",28,"murders","2014",45
+"Oklahoma City","Oklahoma",28,"murders","2015",73
+"Tulsa","Oklahoma",9,"murders","2014",46
+"Tulsa","Oklahoma",9,"murders","2015",55
+"Portland","Oregon",8,"murders","2014",26
+"Portland","Oregon",8,"murders","2015",34
+"Philadelphia","Pennsylvania",32,"murders","2014",248
+"Philadelphia","Pennsylvania",32,"murders","2015",280
+"Pittsburgh","Pennsylvania",-12,"murders","2014",69
+"Pittsburgh","Pennsylvania",-12,"murders","2015",57
+"Memphis","Tennessee",-5,"murders","2014",140
+"Memphis","Tennessee",-5,"murders","2015",135
+"Nashville","Tennessee",31,"murders","2014",41
+"Nashville","Tennessee",31,"murders","2015",72
+"Arlington","Texas",-5,"murders","2014",13
+"Arlington","Texas",-5,"murders","2015",8
+"Austin","Texas",-9,"murders","2014",32
+"Austin","Texas",-9,"murders","2015",23
+"Corpus Christi","Texas",-10,"murders","2014",27
+"Corpus Christi","Texas",-10,"murders","2015",17
+"Dallas","Texas",20,"murders","2014",116
+"Dallas","Texas",20,"murders","2015",136
+"El Paso","Texas",-4,"murders","2014",21
+"El Paso","Texas",-4,"murders","2015",17
+"Fort Worth","Texas",2,"murders","2014",54
+"Fort Worth","Texas",2,"murders","2015",56
+"Houston","Texas",61,"murders","2014",242
+"Houston","Texas",61,"murders","2015",303
+"Laredo","Texas",-6,"murders","2014",14
+"Laredo","Texas",-6,"murders","2015",8
+"Plano","Texas",0,"murders","2014",4
+"Plano","Texas",0,"murders","2015",4
+"San Antonio","Texas",-9,"murders","2014",103
+"San Antonio","Texas",-9,"murders","2015",94
+"Virginia Beach","Virginia",2,"murders","2014",17
+"Virginia Beach","Virginia",2,"murders","2015",19
+"Seattle","Washington",-3,"murders","2014",26
+"Seattle","Washington",-3,"murders","2015",23
+"Milwaukee","Wisconsin",55,"murders","2014",90
+"Milwaukee","Wisconsin",55,"murders","2015",145
